@@ -112,7 +112,6 @@ function transpileLine (lineIsp) {
   endBrackets = bracketPrefix(newDepth)
   transpiledLine = concatenateStrings(endBrackets, transpiledLine)
   return transpiledLine
-  return transpiledLine
  }
  if (areSame(atomicFunction, 'y')) {
   lineIsp = removeDepth(lineIsp, newDepth)
@@ -122,7 +121,6 @@ function transpileLine (lineIsp) {
   current_depth = newDepth
   endBrackets = bracketPrefix(newDepth)
   transpiledLine = concatenateStrings(endBrackets, transpiledLine)
-  return transpiledLine
   return transpiledLine
  }
  return ''
@@ -445,8 +443,9 @@ function transpileY (lineIsp) {
 }
 
 
-utility_functions = `
-
+utility_functions =
+  
+`
 function addNumbers (number1, number2) {
  sumNumbers = number1 + number2
  return sumNumbers
@@ -508,7 +507,6 @@ function specialConcatenation (removedEnding, newEnding, originalString) {
   searchIndex = addNumbers(searchIndex, 1)
  }
 }
-
 `
 
 

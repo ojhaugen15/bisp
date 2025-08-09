@@ -507,6 +507,35 @@ function specialConcatenation (removedEnding, newEnding, originalString) {
   searchIndex = addNumbers(searchIndex, 1)
  }
 }
+
+function arentSame (item1, item2) {
+ conditionMet = item1 === item2
+ return conditionMet
+}
+
+function areSame (item1, item2) {
+ conditionMet = item1 === item2
+ return conditionMet
+}
+
+function multiplyNumbers (number1, number2) {
+ productNumbers = number1 * number2
+ return productNumbers
+}
+
+function setValue (objectName, keyName, valueValue) {
+ objectName[keyName] = valueValue
+}
+
+function roundNumber (inputNumber) {
+ outputNumber = Math.round(inputNumber)
+ return outputNumber
+}
+
+function quotientNumbers (number1, number2) {
+ outputNumber = number1 / number2
+ return outputNumber
+}
 `
 
 

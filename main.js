@@ -7,6 +7,7 @@ function transpileIsp (programText, currentIndex, currentOutput) {
  if (arentSame(undefined, currentIndex)) {
   searchIndex = currentIndex
  }
+ console.log('hello 2')
  while (firstGreater(programSize, searchIndex)) {
   currentCharacter = getValue(programText, searchIndex)
   if (areSame(currentCharacter, '\n')) {

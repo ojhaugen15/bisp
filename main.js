@@ -6,7 +6,7 @@ function transpileIsp (programText, currentIndex, currentOutput) {
  outputText = ''
  if (arentSame(currentIndex, undefined)) {
   searchIndex = currentIndex
-  outputText = curentOutput
+  outputText = currentOutput
  }
  currentBlock = ''
  countLines = 0

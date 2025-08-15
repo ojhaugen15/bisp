@@ -9,10 +9,8 @@ function transpileIsp (programText, currentIndex, currentOutput) {
  }
  while (firstGreater(programSize, searchIndex)) {
   currentCharacter = getValue(programText, searchIndex)
-  console.log('currentCharacter: ', currentCharacter)
   if (areSame(currentCharacter, '\n')) {
    transpiledLine = transpileLine(currentLine)
-   console.log('currentLine: ', currentLine, ' transpiledLine: ', transpiledLine)
    currentOutput = concatenateStrings(currentOutput, transpiledLine)
    currentOutput = concatenateStrings(currentOutput, '\n')
    currentIndex = addNumbers(searchIndex, 1)
@@ -255,6 +253,7 @@ function transpileDeclaration (lineIsp, currentIndex, currentOutput) {
 }
 
 function removeDepth (lineIsp, numberColons) {
+ console.log('arguments: ', arguments)
  outputString = ''
  searchIndex = numberColons
  lineSize = getValue(lineIsp, 'length')

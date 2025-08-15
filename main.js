@@ -1,7 +1,7 @@
 current_depth = 0
 
 function transpileIsp (programText, currentIndex, currentOutput) {
- console.log('currentIndex: ', currentIndex)
+ console.log('arguments: ', arguments)
  searchIndex = 0
  programSize = getValue(programText, '\n')
  outputText = ''

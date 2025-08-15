@@ -1,7 +1,5 @@
 current_depth = 0
 
-console.log('UPDATED')
-
 function transpileIsp (programText, currentIndex, currentOutput) {
  searchIndex = 0
  programSize = getValue(programText, 'length')

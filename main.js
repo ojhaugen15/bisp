@@ -344,7 +344,7 @@ function transpileNested (lineIsp) {
    }
    currentCharacter = getValue(lineIsp, searchIndex)            
   }  
-  outputString = conatenateStrings(outputString, currentCharacter)
+  outputString = concatenateStrings(outputString, currentCharacter)
   searchIndex = addNumbers(searchIndex, 1)
  }
  return outputString
@@ -400,7 +400,7 @@ function transpileO (lineIsp) {
     searchIndex = addNumbers(searchIndex, 1)
     while (firstGreater(lineSize, searchIndex)) {
      currentCharacter = getValue(lineIsp, searchIndex)
-     secondTerm = conatenateStrings(secondTerm, currentCharacter)
+     secondTerm = concatenateStrings(secondTerm, currentCharacter)
      searchIndex = addNumbers(searchIndex, 1)
     }
     outputString = concatenateStrings(firstTerm, ' = concatenateStrings(')

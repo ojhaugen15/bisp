@@ -1,7 +1,6 @@
 current_depth = 0
 
 function transpileIsp (programText, currentIndex, currentOutput) {
- console.log('arguments: ', arguments)
  searchIndex = 0
  programSize = getValue(programText, 'length')
  outputText = ''
@@ -74,6 +73,7 @@ function getDepth (lineIsp) {
 }
 
 function transpileLine (lineIsp) {
+ console.log('lineIsp: ', lineIsp)
  newDepth = getDepth(lineIsp)
  if (areSame(newDepth, 0)) {
   if (areSame(emptyLine(lineIsp), true)) {

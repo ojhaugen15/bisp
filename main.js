@@ -48,6 +48,7 @@ function transpileBlock (programText, currentIndex, currentOutput) {
   if (areSame(currentCharacter, '\n')) {
    console.log('currentLine: ', currentLine)
    transpiledLine = transpileLine(currentLine)
+   console.log('transpiledLine: ', transpiledLine)
    outputText = concatenateStrings(outputText, transpiledLine)
    outputText = concatenateStrings(outputText, '\n')
    currentIndex = addNumbers(searchIndex, 1)
@@ -77,9 +78,10 @@ function getDepth (lineIsp) {
 function transpileLine (lineIsp) {
  newDepth = getDepth(lineIsp)
  if (areSame(newDepth, 0)) {
-  if (areSame(emptyLine(lineIsp), true)) {
+  if (emptyLine(lineIsp)) {
    current_depth = 0
-   return ''
+   transpiledLine = ''
+   return transpiledLine
   }
  }
  if (areSame(current_depth, 0)) {

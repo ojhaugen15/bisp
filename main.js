@@ -21,7 +21,7 @@ function transpileIsp (programText, currentIndex, currentOutput) {
   }
   searchIndex = addNumbers(searchIndex, 1)
  }
- transpiledProgram = concatenateStrings(transpiledProgram, utilityFunctions)
+ transpiledProgram = concatenateStrings(currentOutput, utilityFunctions)
  return transpiledProgram
 }
 

@@ -31,6 +31,7 @@ function transpileIsp (programText, currentIndex, currentOutput) {
 }
 
 function transpileBlock (programText, currentIndex, currentOutput) {
+ console.log('test')
  searchIndex = 0
  programSize = getValue(programText, 'length')
  currentLine = ''

@@ -183,7 +183,7 @@ function transpileNonatomic (lineIsp, currentIndex, currentOutput) {
      foundFirst = true
      outputString = concatenateStrings(outputString, '(')
     }
-    outputString = concatenateStrigns(outputString, ', ')
+    outputString = concatenateStrings(outputString, ', ')
    }
    currentIndex = addNumbers(searchIndex, 1)
    transpiledLine = transpileNonatomic(lineIsp, currentIndex, outputString)

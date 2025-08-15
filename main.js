@@ -51,8 +51,9 @@ function transpileBlock (programText, currentIndex, currentOutput) {
    outputText = concatenateStrings(outputText, transpiledLine)
    outputText = concatenateStrings(outputText, '\n')
    currentIndex = addNumbers(searchIndex, 1)
-   transpiledProgram = transpileBlock(programText, currentIndex, outputText)
-   return transpiledProgram  
+   console.log('currentIndex: ', currentIndex, searchIndex)
+   transpiledBlock = transpileBlock(programText, currentIndex, outputText)
+   return transpiledBlock
   }
   currentLine = concatenateStrings(currentLine, currentCharacter)
   searchIndex = addNumbers(searchIndex, 1)

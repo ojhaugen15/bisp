@@ -1,13 +1,42 @@
 current_depth = 0
 
-function transpileIsp (programText, currentIndex, currentOutput) {
+function transpileIsp (programText, currentIndex, currentOutput) {
+ searchIndex = 0
+ programSize = getValue(programText, '\n')
+ outputText = ''
+ if (arentSame(currentIndex, undefined)) {
+  searchIndex = currentIndex
+  outputText = curentOutput
+ }
+ currentBlock = ''
+ countLines = 0
+ blockSize = 50
+ while (firstGreater(programSize, searchIndex)) {
+  currentCharacter = getValue(programText, searchIndex)
+  currentBlock = concatenateStrings(currentBlock, currentCharacter)
+  if (areSame(currentCharacter, '\n')) {
+   countLines = addNumbers(countLines, 1)
+   if (areSame(blockSize, countLines)) {
+    transpiledBlock = transpileBlock(currentBlock)
+    outputText = concatenateStrings(outputText, transpiledBlock)
+    currentIndex = addNumbers(searchIndex, 1)
+    transpiledText = transpileIsp(programText, currentIndex, outputText)
+    return transpiledText
+   }
+  }
+  searchIndex = addNumbers(searchIndex, 1)
+ }
+ transpiledProgram = concatenateStrings(currentOutput, utilityFunctions)
+ return transpiledProgram
+}
+
+function transpileBlock (programText, currentIndex, currentOutput) {
  searchIndex = 0
  programSize = getValue(programText, 'length')
  currentLine = ''
  if (arentSame(undefined, currentIndex)) {
   searchIndex = currentIndex
  }
- console.log('hello 2')
  while (firstGreater(programSize, searchIndex)) {
   currentCharacter = getValue(programText, searchIndex)
   if (areSame(currentCharacter, '\n')) {
@@ -16,13 +45,11 @@ function transpileIsp (programText, currentIndex, currentOutput) {
    currentOutput = concatenateStrings(currentOutput, '\n')
    currentIndex = addNumbers(searchIndex, 1)
    transpiledProgram = transpileIsp(programText, currentIndex, currentOutput)
-   console.log('hello')
    return transpiledProgram  
   }
   searchIndex = addNumbers(searchIndex, 1)
  }
- transpiledProgram = concatenateStrings(currentOutput, utilityFunctions)
- return transpiledProgram
+ return currentOutput
 }
 
 function getDepth (lineIsp) {

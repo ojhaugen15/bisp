@@ -35,7 +35,6 @@ function transpileIsp (programText, currentIndex, currentOutput) {
 }
 
 function transpileBlock (programText, currentIndex, currentOutput) {
- console.log(arguments)
  searchIndex = 0
  programSize = getValue(programText, 'length')
  currentLine = ''
@@ -51,7 +50,6 @@ function transpileBlock (programText, currentIndex, currentOutput) {
    outputText = concatenateStrings(outputText, transpiledLine)
    outputText = concatenateStrings(outputText, '\n')
    currentIndex = addNumbers(searchIndex, 1)
-   console.log('currentIndex: ', currentIndex, searchIndex)
    transpiledBlock = transpileBlock(programText, currentIndex, outputText)
    return transpiledBlock
   }

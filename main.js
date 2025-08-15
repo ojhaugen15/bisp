@@ -1,6 +1,6 @@
 current_depth = 0
 
-console.log('updated')
+console.log('UPDATED')
 
 function transpileIsp (programText, currentIndex, currentOutput) {
  searchIndex = 0
@@ -13,6 +13,7 @@ function transpileIsp (programText, currentIndex, currentOutput) {
   currentCharacter = getValue(programText, searchIndex)
   if (areSame(currentCharacter, '\n')) {
    transpiledLine = transpileLine(currentLine)
+   console.log('currentLine: ', currentLine, ' transpiledLine: ', transpiledLine)
    currentOutput = concatenateStrings(currentOutput, transpiledLine)
    currentOutput = concatenateStrings(currentOutput, '\n')
    currentIndex = addNumbers(searchIndex, 1)

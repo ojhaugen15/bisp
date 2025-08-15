@@ -28,6 +28,7 @@ function transpileIsp (programText, currentIndex, currentOutput) {
  }
  if (firstGreater(countLines, 0)) {
   transpiledBlock = transpileBlock(currentBlock)
+  console.log('currentBlock: ', currentBlock)
   outputText = concatenateStrings(outputText, transpiledBlock)
  }
  transpiledProgram = concatenateStrings(outputText, utility_functions)

@@ -38,22 +38,24 @@ function transpileBlock (programText, currentIndex, currentOutput) {
  searchIndex = 0
  programSize = getValue(programText, 'length')
  currentLine = ''
+ outputText = ''
  if (arentSame(undefined, currentIndex)) {
   searchIndex = currentIndex
+  outputText = currentOutput
  }
  while (firstGreater(programSize, searchIndex)) {
   currentCharacter = getValue(programText, searchIndex)
   if (areSame(currentCharacter, '\n')) {
    transpiledLine = transpileLine(currentLine)
-   currentOutput = concatenateStrings(currentOutput, transpiledLine)
-   currentOutput = concatenateStrings(currentOutput, '\n')
+   outputText = concatenateStrings(outputText, transpiledLine)
+   outputText = concatenateStrings(outputText, '\n')
    currentIndex = addNumbers(searchIndex, 1)
-   transpiledProgram = transpileIsp(programText, currentIndex, currentOutput)
+   transpiledProgram = transpileIsp(programText, currentIndex, outputText)
    return transpiledProgram  
   }
   searchIndex = addNumbers(searchIndex, 1)
  }
- return currentOutput
+ return outputText
 }
 
 function getDepth (lineIsp) {

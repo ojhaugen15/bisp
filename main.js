@@ -1,6 +1,7 @@
 current_depth = 0
 
 function transpileIsp (programText, currentIndex, currentOutput) {
+ console.log('arguments: ', arguments)
  searchIndex = 0
  programSize = getValue(programText, 'length')
  outputText = ''
@@ -28,7 +29,6 @@ function transpileIsp (programText, currentIndex, currentOutput) {
  }
  if (firstGreater(countLines, 0)) {
   transpiledBlock = transpileBlock(currentBlock)
-  console.log('currentBlock: ', currentBlock)
   outputText = concatenateStrings(outputText, transpiledBlock)
  }
  transpiledProgram = concatenateStrings(outputText, utility_functions)
@@ -36,7 +36,6 @@ function transpileIsp (programText, currentIndex, currentOutput) {
 }
 
 function transpileBlock (programText, currentIndex, currentOutput) {
- console.log('arguments: ', arguments)
  searchIndex = 0
  programSize = getValue(programText, 'length')
  currentLine = ''
@@ -52,7 +51,7 @@ function transpileBlock (programText, currentIndex, currentOutput) {
    outputText = concatenateStrings(outputText, transpiledLine)
    outputText = concatenateStrings(outputText, '\n')
    currentIndex = addNumbers(searchIndex, 1)
-   transpiledProgram = transpileIsp(programText, currentIndex, outputText)
+   transpiledProgram = transpileBlock(programText, currentIndex, outputText)
    return transpiledProgram  
   }
   searchIndex = addNumbers(searchIndex, 1)

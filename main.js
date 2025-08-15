@@ -9,6 +9,7 @@ function transpileIsp (programText, currentIndex, currentOutput) {
  }
  while (firstGreater(programSize, searchIndex)) {
   currentCharacter = getValue(programText, searchIndex)
+  console.log('currentCharacter: ', currentCharacter)
   if (areSame(currentCharacter, '\n')) {
    transpiledLine = transpileLine(currentLine)
    console.log('currentLine: ', currentLine, ' transpiledLine: ', transpiledLine)

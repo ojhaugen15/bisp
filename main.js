@@ -35,6 +35,7 @@ function transpileIsp (programText, currentIndex, currentOutput) {
 }
 
 function transpileBlock (programText, currentIndex, currentOutput) {
+ console.log(arguments)
  searchIndex = 0
  programSize = getValue(programText, 'length')
  currentLine = ''
@@ -46,9 +47,7 @@ function transpileBlock (programText, currentIndex, currentOutput) {
  while (firstGreater(programSize, searchIndex)) {
   currentCharacter = getValue(programText, searchIndex)
   if (areSame(currentCharacter, '\n')) {
-   console.log('currentLine: ', currentLine)
    transpiledLine = transpileLine(currentLine)
-   console.log('transpiledLine: ', transpiledLine)
    outputText = concatenateStrings(outputText, transpiledLine)
    outputText = concatenateStrings(outputText, '\n')
    currentIndex = addNumbers(searchIndex, 1)

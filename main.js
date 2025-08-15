@@ -15,6 +15,7 @@ function transpileIsp (programText, currentIndex, currentOutput) {
    currentOutput = concatenateStrings(currentOutput, '\n')
    currentIndex = addNumbers(searchIndex, 1)
    transpiledProgram = transpileIsp(programText, currentIndex, currentOutput)
+   console.log('hello')
    return transpiledProgram  
   }
   searchIndex = addNumbers(searchIndex, 1)

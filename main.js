@@ -34,6 +34,7 @@ function getDepth (lineIsp) {
   }
   searchIndex = addNumbers(searchIndex, 1)
  }
+ return 0
 }
 
 function transpileLine (lineIsp) {

@@ -36,7 +36,6 @@ function transpileIsp (programText, currentIndex, currentOutput) {
 }
 
 function transpileBlock (programText, currentIndex, currentOutput) {
- console.log(arguments)
  searchIndex = 0
  programSize = getValue(programText, 'length')
  currentLine = ''
@@ -73,6 +72,20 @@ function getDepth (lineIsp) {
   searchIndex = addNumbers(searchIndex, 1)
  }
  return 0
+}
+
+function spaceQuoted (lineIsp, currentIndex) {
+ quoteCount = 0
+ searchIndex = 0
+ while (firstGreater(currentIndex, searchIndex)) {
+  currentCharacter = lineIsp[searchIndex]
+  if (areSame(currentCharacter, "'")) {
+   quoteCount = addNumbers(quoteCount, 1)
+  }
+  searchIndex = addNumbers(searchIndex, 1)
+ }
+ isQuoted = isOdd(quoteCount)
+ return isQuoted
 }
 
 function transpileLine (lineIsp) {
@@ -176,6 +189,12 @@ function transpileNonatomic (lineIsp, currentIndex, currentOutput) {
   currentCharacter = getValue(lineIsp, searchIndex)
   if (areSame(currentCharacter, ' ')) {
    currentIndex = addNumbers(searchIndex, 1)
+   isQuoted = spaceQuoted(lineIsp, searchIndex)
+   if (areSame(isQuoted, true)) {
+    currentOutput = concatenateStrings(currentOutput, currentCharacter)
+    outputString = transpileNonatomic(lineIsp, currentIndex, currentOutput)
+    return outputString
+   }
    if (areSame(currentIndex, searchIndex)) {
     outputString = concatenateStrings(outputString, ')')
     return outputString
@@ -577,6 +596,11 @@ function roundNumber (inputNumber) {
 function quotientNumbers (number1, number2) {
  outputNumber = number1 / number2
  return outputNumber
+}
+
+function isOdd (inputNumber) {
+ conditionMet = inputNumber % 2
+ return conditionMet
 }
 `
 

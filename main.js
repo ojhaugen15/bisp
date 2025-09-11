@@ -1,4 +1,4 @@
-console.log('TESTING')
+console.log('testing')
 current_depth = 0
 
 function transpileIsp (programText, currentIndex, currentOutput) {
@@ -92,7 +92,6 @@ function transpileLine (lineIsp) {
  }
  secondCharacter = getValue(lineIsp, 1)
  if (arentSame(secondCharacter, ' ')) {
-  console.log('lineIsp: ', lineIsp, ' secondCharacter: ', secondCharacter)
   lineIsp = removeDepth(lineIsp, newDepth)
   lineIsp = transpileNested(lineIsp)
   transpiledLine = transpileNonatomic(lineIsp)
@@ -102,62 +101,57 @@ function transpileLine (lineIsp) {
   transpiledLine = concatenateStrings(endBrackets, transpiledLine)
   return transpiledLine
  }
- atomicFunction = getValue(lineIsp, 0)
+ lineIsp = removeDepth(lineIsp, newDepth)
+ atomicFunction = getValue(lineIsp, 0)
  if (areSame(atomicFunction, 'a')) {
-  lineIsp = removeDepth(lineIsp, newDepth)
   lineIsp = transpileNested(lineIsp)
   transpiledLine = transpileA(lineIsp)
-  transpiledLine = addSpaces(lineIsp, newDepth)
+  transpiledLine = addSpaces(transpiledLine, newDepth)
   current_depth = newDepth
   endBrackets = bracketPrefix(newDepth)
   transpiledLine = concatenateStrings(endBrackets, transpiledLine)
   return transpiledLine
  }
  if (areSame(atomicFunction, 'e')) {
-  lineIsp = removeDepth(lineIsp, newDepth)
   lineIsp = transpileNested(lineIsp)
   transpiledLine = transpileE(lineIsp)
-  transpiledLine = addSpaces(lineIsp, newDepth)
+  transpiledLine = addSpaces(transpiledLine, newDepth)
   current_depth = newDepth
   endBrackets = bracketPrefix(newDepth)
   transpiledLine = concatenateStrings(endBrackets, transpiledLine)
   return transpiledLine
  }
  if (areSame(atomicFunction, 'i')) {
-  lineIsp = removeDepth(lineIsp, newDepth)
   lineIsp = transpileNested(lineIsp)
   transpiledLine = transpileI(lineIsp)
-  transpiledLine = addSpaces(lineIsp, newDepth)
+  transpiledLine = addSpaces(transpiledLine, newDepth)
   current_depth = newDepth
   endBrackets = bracketPrefix(newDepth)
   transpiledLine = concatenateStrings(endBrackets, transpiledLine)
   return transpiledLine
  }
  if (areSame(atomicFunction, 'o')) {
-  lineIsp = removeDepth(lineIsp, newDepth)
   lineIsp = transpileNested(lineIsp)
   transpiledLine = transpileO(lineIsp)
-  transpiledLine = addSpaces(lineIsp, newDepth)
+  transpiledLine = addSpaces(transpiledLine, newDepth)
   current_depth = newDepth
   endBrackets = bracketPrefix(newDepth)
   transpiledLine = concatenateStrings(endBrackets, transpiledLine)
   return transpiledLine
  }
  if (areSame(atomicFunction, 'u')) {
-  lineIsp = removeDepth(lineIsp, newDepth)
   lineIsp = transpileNested(lineIsp)
   transpiledLine = transpileU(lineIsp)
-  transpiledLine = addSpaces(lineIsp, newDepth)
+  transpiledLine = addSpaces(transpiledLine, newDepth)
   current_depth = newDepth
   endBrackets = bracketPrefix(newDepth)
   transpiledLine = concatenateStrings(endBrackets, transpiledLine)
   return transpiledLine
  }
  if (areSame(atomicFunction, 'y')) {
-  lineIsp = removeDepth(lineIsp, newDepth)
   lineIsp = transpileNested(lineIsp)
   transpiledLine = transpileY(lineIsp)
-  transpiledLine = addSpaces(lineIsp, newDepth)
+  transpiledLine = addSpaces(transpiledLine, newDepth)
   current_depth = newDepth
   endBrackets = bracketPrefix(newDepth)
   transpiledLine = concatenateStrings(endBrackets, transpiledLine)
@@ -167,6 +161,7 @@ function transpileLine (lineIsp) {
 }
 
 function transpileNonatomic (lineIsp, currentIndex, currentOutput) {
+ console.log('lineIsp: ', lineIsp)
  foundFirst = false
  searchIndex = 0
  outputString = ''

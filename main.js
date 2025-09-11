@@ -1,4 +1,4 @@
-console.log('testing')
+console.log('TESTING')
 current_depth = 0
 
 function transpileIsp (programText, currentIndex, currentOutput) {
@@ -94,7 +94,6 @@ function transpileLine (lineIsp) {
  if (arentSame(secondCharacter, ' ')) {
   lineIsp = removeDepth(lineIsp, newDepth)
   lineIsp = transpileNested(lineIsp)
-  console.log('lineIsp: ', lineIsp)
   transpiledLine = transpileNonatomic(lineIsp)
   transpiledLine = addSpaces(lineIsp, newDepth)
   current_depth = newDepth
@@ -179,16 +178,22 @@ function transpileNonatomic (lineIsp, currentIndex, currentOutput) {
  while (firstGreater(lineSize, searchIndex)) {
   currentCharacter = getValue(lineIsp, searchIndex)
   if (areSame(currentCharacter, ' ')) {
+   currentIndex = addNumbers(searchIndex, 1)
+   if (areSame(currentIndex, searchIndex)) {
+    outputString = concatenateStrings(outputString, ')')
+    return outputString
+   }
    previousIndex = differenceNumbers(searchIndex, 1)
    previousCharacter = getValue(lineIsp, previousIndex)
    if (arentSame(previousCharacter, ',')) {
     if (areSame(foundFirst, false)) {
      foundFirst = true
      outputString = concatenateStrings(outputString, '(')
+     transpiledLine = transpileNonatomic(lineIsp, currentIndex, outputString)
+     return transpiledLine
     }
     outputString = concatenateStrings(outputString, ', ')
    }
-   currentIndex = addNumbers(searchIndex, 1)
    transpiledLine = transpileNonatomic(lineIsp, currentIndex, outputString)
    return transpiledLine
   }

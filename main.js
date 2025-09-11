@@ -1,4 +1,4 @@
-console.log('TESTING')
+console.log('testing')
 current_depth = 0
 
 function transpileIsp (programText, currentIndex, currentOutput) {

@@ -1,4 +1,4 @@
-console.log('testing')
+console.log('TESTING')
 current_depth = 0
 
 function transpileIsp (programText, currentIndex, currentOutput) {
@@ -315,10 +315,14 @@ function addSpaces (lineIsp, lineDepth) {
  return outputString  
 }
 
-function transpileNested (lineIsp) {
+function transpileNested (lineIsp, currentOutput, currentIndex) {
  searchIndex = 0
  lineSize = getValue(lineIsp, 'length')
  outputString = ''
+ if (arentSame(currentOutput, undefined)) {
+  outputString = currentOutput
+  searchIndex = currentIndex
+ }
  while (firstGreater(lineSize, searchIndex)) {
   currentCharacter = getValue(lineIsp, searchIndex)
   if (areSame(currentCharacter, ':')) {
@@ -335,18 +339,14 @@ function transpileNested (lineIsp) {
      if (areSame(nestDepth, 0)) {
       transpiledSubline = transpileLine(nestedLine)
       outputString = concatenateStrings(outputString, transpiledSubline)
-      lastIndex = search2
-      search2 = lineSize
+      currentIndex = addNumbers(currentIndex, 1)
+      outputString = tranpsileNested(lineIsp, outputString, currentIndex)
+      return outputString
      }
     }
     nestedLine = concatenateStrings(nestedLine, currentCharacter)
     search2 = addNumbers(search2, 1)
-   }
-   searchIndex = addNumbers(lastIndex, 1)
-   if (areSame(searchIndex, lineSize)) {
-    return outputString
-   }
-   currentCharacter = getValue(lineIsp, searchIndex)            
+   }          
   }  
   outputString = concatenateStrings(outputString, currentCharacter)
   searchIndex = addNumbers(searchIndex, 1)

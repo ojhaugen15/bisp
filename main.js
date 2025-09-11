@@ -95,7 +95,7 @@ function transpileLine (lineIsp) {
   lineIsp = removeDepth(lineIsp, newDepth)
   lineIsp = transpileNested(lineIsp)
   transpiledLine = transpileNonatomic(lineIsp)
-  transpiledLine = addSpaces(lineIsp, newDepth)
+  transpiledLine = addSpaces(transpiledLine, newDepth)
   current_depth = newDepth
   endBrackets = bracketPrefix(newDepth)
   transpiledLine = concatenateStrings(endBrackets, transpiledLine)

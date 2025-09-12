@@ -48,11 +48,11 @@ function transpileBlock (programText, currentIndex, currentOutput) {
  while (firstGreater(programSize, searchIndex)) {
   currentCharacter = getValue(programText, searchIndex)
   if (areSame(currentCharacter, '\n')) {
-   console.log('currentLine: ', currentLine)
    transpiledLine = transpileLine(currentLine)
    outputText = concatenateStrings(outputText, transpiledLine)
    outputText = concatenateStrings(outputText, '\n')
    currentIndex = addNumbers(searchIndex, 1)
+   console.log('currentIndex: ', currentIndex)
    transpiledBlock = transpileBlock(programText, currentIndex, outputText)
    return transpiledBlock
   }

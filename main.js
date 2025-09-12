@@ -1,4 +1,4 @@
-console.log('testing')
+console.log('TESTING')
 current_depth = 0
 
 function transpileIsp (programText, currentIndex, currentOutput) {
@@ -32,6 +32,7 @@ function transpileIsp (programText, currentIndex, currentOutput) {
   outputText = concatenateStrings(outputText, transpiledBlock)
  }
  transpiledProgram = concatenateStrings(outputText, utility_functions)
+ console.log('transpiledProgram: ', transpiledProgram)
  return transpiledProgram
 }
 
@@ -175,7 +176,6 @@ function transpileLine (lineIsp) {
 }
 
 function transpileNonatomic (lineIsp, currentIndex, currentOutput) {
- console.log('lineIsp: ', lineIsp)
  foundFirst = false
  searchIndex = 0
  outputString = ''

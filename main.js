@@ -1,4 +1,4 @@
-console.log('TESTING')
+console.log('testing')
 current_depth = 0
 
 function transpileIsp (programText, currentIndex, currentOutput) {
@@ -107,7 +107,7 @@ function transpileLine (lineIsp) {
  }
  secondCharacter = getValue(lineIsp, 1)
  if (arentSame(secondCharacter, ' ')) {
-  console.log('secondCharacter: ', secondCharacter)
+  console.log('secondCharacter: ', secondCharacter, ' lineIsp: ', lineIsp)
   lineIsp = removeDepth(lineIsp, newDepth)
   lineIsp = transpileNested(lineIsp)
   transpiledLine = transpileNonatomic(lineIsp)

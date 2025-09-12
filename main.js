@@ -1,4 +1,4 @@
-console.log('TESTING')
+console.log('testing')
 current_depth = 0
 
 function transpileIsp (programText, currentIndex, currentOutput) {
@@ -357,6 +357,7 @@ function transpileNested (lineIsp, currentOutput, currentIndex) {
     if (areSame(currentCharacter, ';')) {
      nestDepth = differenceNumbers(nestDepth, 1)
      if (areSame(nestDepth, 0)) {
+      console.log('nestedLine: ', nestedLine)
       transpiledSubline = transpileLine(nestedLine)
       outputString = concatenateStrings(outputString, transpiledSubline)
       currentIndex = addNumbers(currentIndex, 1)

@@ -107,6 +107,7 @@ function transpileLine (lineIsp) {
  }
  secondCharacter = getValue(lineIsp, 1)
  if (arentSame(secondCharacter, ' ')) {
+  console.log('secondCharacter: ', secondCharacter)
   lineIsp = removeDepth(lineIsp, newDepth)
   lineIsp = transpileNested(lineIsp)
   transpiledLine = transpileNonatomic(lineIsp)
@@ -357,7 +358,6 @@ function transpileNested (lineIsp, currentOutput, currentIndex) {
     if (areSame(currentCharacter, ';')) {
      nestDepth = differenceNumbers(nestDepth, 1)
      if (areSame(nestDepth, 0)) {
-      console.log('nestedLine: ', nestedLine)
       transpiledSubline = transpileLine(nestedLine)
       outputString = concatenateStrings(outputString, transpiledSubline)
       currentIndex = addNumbers(currentIndex, 1)

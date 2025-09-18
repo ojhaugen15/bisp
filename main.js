@@ -1,4 +1,4 @@
-console.log('TESTING')
+console.log('testing')
 current_depth = 0
 
 function transpileIsp (programText, currentIndex, currentOutput) {
@@ -52,9 +52,6 @@ function transpileBlock (programText, currentIndex, currentOutput) {
    outputText = concatenateStrings(outputText, transpiledLine)
    outputText = concatenateStrings(outputText, '\n')
    currentIndex = addNumbers(searchIndex, 1)
-   console.log('currentIndex: ', currentIndex)
-   console.log('searchIndex: ', searchIndex)
-   console.log('outputText: ', outputText)
    transpiledBlock = transpileBlock(programText, currentIndex, outputText)
    return transpiledBlock
   }

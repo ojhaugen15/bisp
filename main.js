@@ -53,6 +53,7 @@ function transpileBlock (programText, currentIndex, currentOutput) {
    outputText = concatenateStrings(outputText, transpiledLine)
    outputText = concatenateStrings(outputText, '\n')
    currentIndex = addNumbers(searchIndex, 1)
+   console.log(searchIndex)
    transpiledBlock = transpileBlock(programText, currentIndex, outputText)
    return transpiledBlock
   }

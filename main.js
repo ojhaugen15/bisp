@@ -48,7 +48,6 @@ function transpileBlock (programText, currentIndex, currentOutput) {
  }
  while (firstGreater(programSize, searchIndex)) {
   currentCharacter = getValue(programText, searchIndex)
-  console.log(currentCharacter, searchIndex)
   if (areSame(currentCharacter, '\n')) {
    transpiledLine = transpileLine(currentLine)
    outputText = concatenateStrings(outputText, transpiledLine)
@@ -91,6 +90,13 @@ function spaceQuoted (lineIsp, currentIndex) {
  return isQuoted
 }
 
+function isComment (lineIsp) {
+ firstCharacter = getValue(lineIsp, 0)
+ if (areSame(firstCharacter, '`')) {
+  return lineIsp
+ }
+}
+
 function transpileLine (lineIsp) {
  console.log('transpileLine arguments: ', lineIsp)
  newDepth = getDepth(lineIsp)
@@ -100,6 +106,9 @@ function transpileLine (lineIsp) {
    transpiledLine = ''
    return transpiledLine
   }
+  if (isComment(lineIsp)) {
+   return lineIsp
+  }
  }
  if (areSame(current_depth, 0)) {
   if (areSame(newDepth, 1)) {

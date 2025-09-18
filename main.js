@@ -37,6 +37,7 @@ function transpileIsp (programText, currentIndex, currentOutput) {
 }
 
 function transpileBlock (programText, currentIndex, currentOutput) {
+ console.log('transpileBlock arguments: ', arguments)
  searchIndex = 0
  programSize = getValue(programText, 'length')
  currentLine = ''
@@ -90,6 +91,7 @@ function spaceQuoted (lineIsp, currentIndex) {
 }
 
 function transpileLine (lineIsp) {
+ console.log('transpileLine arguments: ', lineIsp)
  newDepth = getDepth(lineIsp)
  if (areSame(newDepth, 0)) {
   if (emptyLine(lineIsp)) {
@@ -176,6 +178,7 @@ function transpileLine (lineIsp) {
 }
 
 function transpileNonatomic (lineIsp, currentIndex, currentOutput) {
+ console.log('transpileNonatomic arguments: ', arguments)
  foundFirst = false
  searchIndex = 0
  outputString = ''
